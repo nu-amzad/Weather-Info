@@ -1,6 +1,6 @@
 # Weather-INFO App 🌦
 
-A simple web app that displays current temperature and weather conditions for cities using the OpenWeatherMap API.
+A simple web app that displays current temperature and weather conditions for cities and current location using the OpenWeatherMap API.
 
 ## Features
 - Search for any city
