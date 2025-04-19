@@ -61,18 +61,27 @@ body{
     transform: scale(0.95);
 }
 
-#live-loc{
+#live-loc {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: .7rem;
+    font-size: 0.7rem;
     border: solid 1px #9d3a3a;
     border-radius: 5px;
-    padding-right: 5px;
+    padding: 5px;
     background-color: #4facfe;
-    box-shadow: .5px .5px 5px #0000008a ;
+    box-shadow: 0.5px 0.5px 5px #0000008a;
     cursor: pointer;
+    width: 100px;
+    height: 20px;
+    transition: all .3s ease;
 }
+
+#live-loc:hover {
+    width: 105px;
+    height: 25px;
+}
+
 #temp, #Weather{
     margin-top: 20px;
     font-size: 1.2rem;
