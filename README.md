@@ -11,8 +11,16 @@ A simple web app that displays current temperature and weather conditions for ci
 1. **Use the live version:**
     [CLICK HERE](https://weather-info-amzad.netlify.app/)
 
-2. **Or run it locally:** 
-    Clone the repository and open the `index.html` file in your browser.
+2. **Or run it locally:**
+
+   Clone the repository, install dependencies, and start the development server:
+
+   ```bash
+   git clone https://github.com/your-username/your-repo-name.git
+   cd your-repo-name
+   npm install
+   npm run dev
+
 
 ## API Used
 - [OpenWeatherMap](https://openweathermap.org/api)
