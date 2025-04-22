@@ -8,21 +8,19 @@ let livloc = document.getElementById('live-loc');
 let citycountry = document.getElementById('city-Country');
 let cityName;
 
-// Helper function to convert Kelvin to Celsius
 function kelvinToCelsius(kelvin) {
   return kelvin - 273.15;
 }
 
-// Function to handle the API call for city name
 async function getdata(value) {
   try {
     const response = await axios.get('https://api.openweathermap.org/data/2.5/weather', {
       params: {
         q: value,  // City name
-        appid: '4a0470befc3535138ebf692dd9865e7c'  // Your API key
+        appid: '4a0470befc3535138ebf692dd9865e7c'
       }
     });
-    return response.data;  // Return the JSON response data directly
+    return response.data;
   } catch (error) {
     console.error('Error:', error);
     citycountry.innerText = "Error: City not found.";
@@ -30,18 +28,17 @@ async function getdata(value) {
   }
 }
 
-// Function to handle the API call for latitude and longitude
 async function getdataLL(value1, value2) {
   try {
     const response = await axios.get('https://api.openweathermap.org/data/2.5/weather', {
       params: {
-        lat: value1,  // Latitude
-        lon: value2,  // Longitude
-        appid: '4a0470befc3535138ebf692dd9865e7c',  // Your API key
-        lang: 'en'  // Language (English)
+        lat: value1,
+        lon: value2,
+        appid: '4a0470befc3535138ebf692dd9865e7c',
+        lang: 'en'
       }
     });
-    return response.data;  // Return the JSON response data directly
+    return response.data;
   } catch (error) {
     console.error('Error:', error);
     citycountry.innerText = "Error: Unable to fetch location data.";
@@ -49,7 +46,6 @@ async function getdataLL(value1, value2) {
   }
 }
 
-// Geolocation success callback
 async function locationSuccess(position) {
   const llreturnedData = await getdataLL(position.coords.latitude, position.coords.longitude);
   if (llreturnedData) {
@@ -65,16 +61,15 @@ async function locationSuccess(position) {
   }
 }
 
-// Geolocation failure callback
 function locationFailed() {
   console.log('Cannot access location');
   citycountry.innerText = "Cannot access location.";
 }
 
-// Search button event listener
+
 btn.addEventListener('click', async () => {
   cityName = searchbar.value.toLowerCase();
-  searchbar.value = '';  // Clear search bar
+  searchbar.value = '';
   let returnedData = await getdata(cityName);
 
   if (returnedData && returnedData.main && returnedData.sys) {
@@ -90,13 +85,12 @@ btn.addEventListener('click', async () => {
   }
 });
 
-// Live location button event listener
 livloc.addEventListener('click', () => {
   navigator.geolocation.getCurrentPosition(locationSuccess, locationFailed);
 });
 
 
-//openweather api only provides country code not country Name so im using a MAP
+//openweather api only provides country code not country Name, so im using a MAP to show country names according to the country codes
 
 const countryCodes = {
   "AF": "Afghanistan",
